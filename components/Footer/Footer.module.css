@@ -1,0 +1,21 @@
+.container{
+ padding: 10px 20px 0;
+ position: absolute;
+ bottom: 0;
+}
+.marker{
+ background-color: #494949;
+ border-top-left-radius: 6px;
+ border-top-right-radius: 6px;
+ padding: 12px 8px;
+ color: antiquewhite;
+}
+.link:hover{
+   color: #de3313;
+   text-decoration: underline;
+}
+.link:active{
+    color: #fd8302;
+    text-decoration: underline;
+}
+
