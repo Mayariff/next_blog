@@ -1,13 +1,26 @@
 import React from "react";
-import s from './Header.module.css'
-import Link from "next/link";
+import s from "./Header.module.css";
+import Navigation from "@/components/Header/Navigation";
+
+
+const navigateData = [
+  {
+  label: "About",
+  link: "/about"
+},
+  {
+    label: "Blog",
+    link: "/blog"
+  },
+  {
+    label: "Home",
+    link: "/home"
+  }];
 
 const Header = () => {
   return (
     <header className={s.container}>
-      <Link href={'/about'} className={s.link}>About</Link>
-      <Link href={'/blog'} className={s.link}>Blog</Link>
-      <Link href={'/'} className={s.link}>Home</Link>
+      <Navigation data={navigateData} />
     </header>
   );
 };

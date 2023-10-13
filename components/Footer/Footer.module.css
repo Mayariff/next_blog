@@ -1,6 +1,6 @@
 .container{
- padding: 10px 20px 0;
- position: absolute;
+ padding: 10px 12px 0;
+ position: fixed;
  bottom: 0;
 }
 .marker{

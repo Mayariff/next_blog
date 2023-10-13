@@ -3,11 +3,13 @@
     height: 80px;
     background-color: #3f3f3f;
     color: antiquewhite;
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 24px;
+
+    position: fixed;
+    top:0;
 }
 
 .link:hover {
@@ -15,7 +17,6 @@
     text-decoration: underline;
 }
 
-.link:active {
-    color: #fd8302;
-    text-decoration: underline;
+.active {
+    color: #fd8302 !important;
 }
