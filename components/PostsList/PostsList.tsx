@@ -13,7 +13,7 @@ const PostsList = () => {
 
   useEffect(() => {
     getAllPosts();
-  }, []);
+  }, [getAllPosts]);
 
   return (
     <>
