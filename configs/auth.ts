@@ -1,8 +1,16 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import YandexProvider from "next-auth/providers/yandex";
+import { DefaultSession, NextAuthOptions } from "next-auth";
 
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+    } & DefaultSession["user"];
+  }
+}
 
-export const authConfig = {
+export const authConfig:NextAuthOptions = {
   providers: [
     YandexProvider({
       clientId: process.env.YANDEX_CLIENT_ID,

@@ -1,30 +1,35 @@
-import React from "react";
 import { Metadata } from "next";
+import { getAllPosts, getPost } from "@/services/getPosts";
 
-type postType={
-  params: {id:string}
+type propsType = {
+  params: { id: string }
 }
 
-export async function generateMetadata({params:{id}}:postType):Promise<Metadata>{
-  const post =  await getData(id)
-  return ( {title: `${post.title} | Next App`,
-           description: "full version of the post"})
+
+export async function  generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map(p => ({
+    slag: p.id.toString()
+  }));
 }
 
-async function getData(id: string) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,
-    { next: { revalidate: 30 } ,
-    }as RequestInit|undefined
-  );
-  return res.json();
+
+export  async function generateMetadata(props: propsType): Promise<Metadata> {
+  const { params: { id } } = props;
+  const post = await getPost(id);
+  return ({
+    title: `${post.title} | Next App`,
+    description: "full version of the post"
+  });
 }
 
-const Post = async ({params}:postType) => {
-  const {id} = params
-  const post =  await getData(id)
+
+const Post = async (props: propsType) => {
+  const { params: { id } } = props;
+  const post = await getPost(id);
   return (
     <article>
-    <h1>{post.title}</h1>
+      <h1>{post.title}</h1>
       <p>{post.body}</p>
     </article>
   );

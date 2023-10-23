@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: "posts from employees and customer reviews"
 };
 
+export const revalidate = 10
 
 const Blog = () => {
   return (
